@@ -1,0 +1,26 @@
+body {
+    background: #43c6ac; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to right,
+        #f8ffae,
+        #43c6ac
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #f8ffae,
+        #43c6ac
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+}
+
+.list-group-item {
+    width: fit-content;
+    font-size: x-large;
+}
+
+.fa-li {
+    left: -1.5em;
+}
