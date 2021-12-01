@@ -1,3 +1,7 @@
+import tabJoursEnOrdre from "./Utilitaire/gestionTemps.js";
+
+console.log("DEPUIS MAIN JS:" + tabJoursEnOrdre);
+
 const CLEFAPI = config.OPEN_WEATHER_APPID;
 let resultatsAPI;
 
