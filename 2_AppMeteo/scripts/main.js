@@ -2,15 +2,15 @@ import tabJoursEnOrdre from "./Utilitaire/gestionTemps.js";
 
 // console.log("DEPUIS MAIN JS:" + tabJoursEnOrdre);
 
-let CLEFAPI;
-if (config) {
-    // Clé secrète pour l'API OpenWeatherMap
-    CLEFAPI = config.OPEN_WEATHER_APPID;
-} else {
+let CLEFAPI = "";
+if (CLEFAPI === "") {
     console.error("Clé API OpenWeatherMap manquante !");
     alert(
         "Veuillez ajouter votre clé API OpenWeatherMap pour faire fonctionner l'application !"
     );
+} else {
+    // Clé secrète pour l'API OpenWeatherMap
+    CLEFAPI = config.OPEN_WEATHER_APPID;
 }
 
 let resultatsAPI;
