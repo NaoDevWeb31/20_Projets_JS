@@ -13,6 +13,93 @@ body {
     height: 100vh;
 }
 
+.container {
+    width: 800px;
+    height: 600px;
+    background: linear-gradient(45deg, #1068b6, #ec60a6);
+    display: grid;
+    grid-template: 100px 300px 100px 100px / repeat(8, 100px);
+    margin: 100px auto 0;
+    position: relative;
+    border: 1px solid #f1f1f1;
+}
+
+header {
+    /* start row / start col / end row / end col */
+    grid-area: 1 / 1 / 2 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.bloc-logo-info {
+    grid-area: 2 / 1 / 3 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bloc-logo {
+    width: 50%;
+}
+
+.bloc-logo img {
+    width: 100%;
+    height: auto;
+}
+
+.bloc-info {
+    width: 50%;
+}
+
+.bloc-info .temps::first-letter {
+    text-transform: capitalize;
+}
+
+.bloc-info .temperature {
+    font-size: 60px;
+}
+
+.bloc-info .localisation {
+    font-size: 40px;
+    word-wrap: break-word;
+}
+
+.heure-bloc-prevision {
+    grid-area: 3 / 1 / 4 / -1;
+}
+
+.jour-prevision-bloc {
+    grid-area: 4 / 1 / 5 / -1;
+}
+
+.jour-prevision-bloc,
+.heure-bloc-prevision {
+    display: grid;
+    grid-template: 100px / repeat(7, 1fr);
+}
+
+.bloc-h,
+.bloc-j {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-top: 1px solid #f1f1f1;
+    font-size: 21px;
+}
+
+.bloc-h:not(:last-child),
+.bloc-j:not(:last-child) {
+    border-right: 1px solid #f1f1f1;
+}
+
+.bloc-h p,
+.bloc-j p {
+    margin: 5px;
+}
+
 .btn-home {
     width: 100%;
     text-align: center;
