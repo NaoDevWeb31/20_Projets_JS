@@ -31,6 +31,7 @@ function verifFunc(tabResultats) {
     }
     // console.log(verifTableau);
     afficherResultats(verifTableau);
+    couleursFonction(verifTableau);
     verifTableau = [];
 }
 
@@ -80,3 +81,24 @@ function afficherResultats(tabCheck) {
             break;
     }
 }
+
+function couleursFonction(tabValBool) {
+    for (let j = 0; j < tabValBool.length; j++) {
+        if (tabValBool[j] === true) {
+            toutesLesQuestions[j].style.background = "mediumseagreen";
+        } else {
+            toutesLesQuestions[j].style.background = "indianred";
+            toutesLesQuestions[j].classList.add("echec");
+
+            setTimeout(() => {
+                toutesLesQuestions[j].classList.remove("echec");
+            }, 500);
+        }
+    }
+}
+
+toutesLesQuestions.forEach((item) => {
+    item.addEventListener("click", () => {
+        item.style.background = "white";
+    });
+});
