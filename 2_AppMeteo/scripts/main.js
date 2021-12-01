@@ -2,7 +2,17 @@ import tabJoursEnOrdre from "./Utilitaire/gestionTemps.js";
 
 // console.log("DEPUIS MAIN JS:" + tabJoursEnOrdre);
 
-const CLEFAPI = config.OPEN_WEATHER_APPID;
+let CLEFAPI;
+if (config) {
+    // Clé secrète pour l'API OpenWeatherMap
+    CLEFAPI = config.OPEN_WEATHER_APPID;
+} else {
+    console.error("Clé API OpenWeatherMap manquante !");
+    alert(
+        "Veuillez ajouter votre clé API OpenWeatherMap pour faire fonctionner l'application !"
+    );
+}
+
 let resultatsAPI;
 
 const temps = document.querySelector(".temps");
@@ -85,8 +95,12 @@ function AppelAPI(long, lat) {
             }
 
             // Icône dynamique
-            const leverDuSoleil = new Date(resultatsAPI.current.sunrise * 1000).getHours(); // Convertir un timestamp Unix
-            const coucherDuSoleil = new Date(resultatsAPI.current.sunset * 1000).getHours();
+            const leverDuSoleil = new Date(
+                resultatsAPI.current.sunrise * 1000
+            ).getHours(); // Convertir un timestamp Unix
+            const coucherDuSoleil = new Date(
+                resultatsAPI.current.sunset * 1000
+            ).getHours();
 
             if (
                 heureActuelle >= leverDuSoleil &&
@@ -98,5 +112,8 @@ function AppelAPI(long, lat) {
             }
 
             chargementContainer.classList.add("disparition");
+        })
+        .catch((erreur) => {
+            console.error(erreur);
         });
 }
