@@ -1,17 +1,20 @@
-import config from "./config.js";
 import tabJoursEnOrdre from "./Utilitaire/gestionTemps.js";
 
 // console.log("DEPUIS MAIN JS:" + tabJoursEnOrdre);
 
-let CLEFAPI = "";
-if (!config) {
-    console.error("Clé API OpenWeatherMap manquante !");
-    alert(
+// Clé secrète
+let CLEFAPI = "appikey";
+while (CLEFAPI === "appikey") {
+    CLEFAPI = prompt(
         "Veuillez ajouter votre clé API OpenWeatherMap pour faire fonctionner l'application !"
     );
-} else {
-    // Clé secrète pour l'API OpenWeatherMap
-    CLEFAPI = config.OPEN_WEATHER_APPID;
+}
+
+if (CLEFAPI === null || CLEFAPI === "") {
+    console.error("Clé API OpenWeatherMap manquante !");
+    alert(
+        "Impossible d'afficher l'Application Météo sans votre clé API OpenWeatherMap ! Actualisez la page pour pouvoir l'ajouter."
+    );
 }
 
 let resultatsAPI;
