@@ -1,9 +1,9 @@
 const form = document.querySelector(".form-quiz");
 let tableauResultats = [];
 const reponses = ["c", "a", "b", "a", "c"];
-const emojis = ["✔️", "✨", "👀", "😭", "👎"];
+const emojis = ["✅", "✨", "👀", "😭", "👎"];
 const titreResultat = document.querySelector(".resultats h2");
-const texteResultat = document.querySelector(".note");
+const noteResultat = document.querySelector(".note");
 const aideResultat = document.querySelector(".aide");
 const toutesLesQuestions = document.querySelectorAll(".question-block");
 let verifTableau = [];
@@ -29,6 +29,54 @@ function verifFunc(tabResultats) {
             verifTableau.push(false);
         }
     }
-    console.log(verifTableau);
+    // console.log(verifTableau);
+    afficherResultats(verifTableau);
     verifTableau = [];
+}
+
+function afficherResultats(tabCheck) {
+    const nbDeFautes = tabCheck.filter((el) => el !== true).length; // Nombre de false
+    // console.log(nbDeFautes);
+
+    switch (nbDeFautes) {
+        case 0:
+            titreResultat.innerText = `${emojis[0]} Bravo, c'est un sans faute ! ${emojis[0]}`;
+            aideResultat.innerText = "";
+            noteResultat.innerText = "5/5";
+            break;
+        case 1:
+            titreResultat.innerText = `${emojis[1]} Vous y êtes presque ! ${emojis[1]}`;
+            aideResultat.innerText =
+                "Retentez une autre réponse dans la case rouge, puis re-validez !";
+            noteResultat.innerText = "4/5";
+            break;
+        case 2:
+            titreResultat.innerText = `${emojis[1]} Encore un effort ... ${emojis[2]}`;
+            aideResultat.innerText =
+                "Retentez une autre réponse dans les cases rouges, puis re-validez !";
+            noteResultat.innerText = "3/5";
+            break;
+        case 3:
+            titreResultat.innerText = `${emojis[2]} Il reste quelques erreurs. ${emojis[3]}`;
+            aideResultat.innerText =
+                "Retentez une autre réponse dans les cases rouges, puis re-validez !";
+            noteResultat.innerText = "2/5";
+            break;
+        case 4:
+            titreResultat.innerText = `${emojis[3]} Peux mieux faire ! ${emojis[3]}`;
+            aideResultat.innerText =
+                "Retentez une autre réponse dans les cases rouges, puis re-validez !";
+            noteResultat.innerText = "1/5";
+            break;
+        case 5:
+            titreResultat.innerText = `${emojis[4]} Peux mieux faire ! ${emojis[4]}`;
+            aideResultat.innerText =
+                "Retentez une autre réponse dans les cases rouges, puis re-validez !";
+            noteResultat.innerText = "0/5";
+            break;
+
+        default:
+            "Wops, cas inattendu.";
+            break;
+    }
 }
