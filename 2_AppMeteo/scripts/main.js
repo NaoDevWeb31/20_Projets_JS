@@ -1,9 +1,10 @@
+import config from "./config.js";
 import tabJoursEnOrdre from "./Utilitaire/gestionTemps.js";
 
 // console.log("DEPUIS MAIN JS:" + tabJoursEnOrdre);
 
 let CLEFAPI = "";
-if (CLEFAPI === "") {
+if (!config) {
     console.error("Clé API OpenWeatherMap manquante !");
     alert(
         "Veuillez ajouter votre clé API OpenWeatherMap pour faire fonctionner l'application !"
