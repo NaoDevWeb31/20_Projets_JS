@@ -31,7 +31,6 @@ h2 {
     margin: 50px auto;
     width: 70%;
     max-width: 900px;
-    min-width: 500px;
     display: flex;
 }
 
@@ -59,9 +58,10 @@ h2 {
     margin: 0 auto;
     width: 70%;
     max-width: 900px;
-    min-width: 500px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 2rem;
 }
 
 .btn {
@@ -71,4 +71,28 @@ h2 {
     width: 200px;
     border: none;
     border-radius: 5px;
+}
+
+@media screen and (max-width: 700px) {
+    h1 {
+        font-size: 3rem;
+    }
+    h2 {
+        margin-bottom: 4rem;
+        font-size: 1.4rem;
+    }
+    .affichage,
+    .container-btns {
+        flex-direction: column;
+    }
+    .bloc {
+        width: 100%;
+    }
+    .bloc p:nth-child(1) {
+        font-size: 30px;
+    }
+    .bloc:nth-child(1) {
+        border-right: 1px solid transparent;
+        border-bottom: 1px solid #333;
+    }
 }
