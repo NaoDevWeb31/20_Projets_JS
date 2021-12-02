@@ -17,3 +17,21 @@ affichageTravail.innerText = `${Math.trunc(tempsInitial / 60)} : ${
 affichagePause.innerText = `${Math.trunc(tempsDeRepos / 60)} : ${
     tempsDeRepos % 60 < 10 ? `0${tempsDeRepos % 60}` : tempsDeRepos % 60
 }`;
+
+btnGo.addEventListener("click", () => {
+    tempsInitial--;
+    affichageTravail.innerText = `${Math.trunc(tempsInitial / 60)} : ${
+        tempsInitial % 60 < 10 ? `0${tempsInitial % 60}` : tempsInitial % 60
+    }`;
+
+    let timer = setInterval(() => {
+        if (pause === false && tempsInitial > 0) {
+            tempsInitial--;
+            affichageTravail.innerText = `${Math.trunc(tempsInitial / 60)} : ${
+                tempsInitial % 60 < 10
+                    ? `0${tempsInitial % 60}`
+                    : tempsInitial % 60
+            }`;
+        }
+    }, 1000);
+});
