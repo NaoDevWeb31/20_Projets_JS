@@ -10,6 +10,51 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background: linear-gradient(to right, #c9d6ff, #e2e2e2);
 }
+header {
+    margin: 30px 0;
+}
+
+h1 {
+    text-align: center;
+    font-size: 4vw;
+}
+
+input {
+    display: block;
+    margin: 10px auto;
+    padding: 20px;
+    font-size: 20px;
+    width: 75%;
+}
+
+.container-btns {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button {
+    display: block;
+    width: 200px;
+    font-size: 25px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.affichage {
+    list-style-type: none;
+    margin: 0 auto;
+    width: 75%;
+    padding: 15px;
+    font-size: 40px;
+}
+
+.info-txt {
+    margin: 10px auto;
+    padding: 20px;
+    font-size: 20px;
+    width: 75%;
+}
 
 /* Bouton de retour */
 
