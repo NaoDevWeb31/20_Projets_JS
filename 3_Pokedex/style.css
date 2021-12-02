@@ -9,6 +9,58 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: #333;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    padding: 25px 0;
+    color: #f1f1f1;
+}
+
+.recherche-poke {
+    max-width: 700px;
+    width: 70%;
+    min-width: 450px;
+    margin: 30px auto;
+    position: relative;
+    display: flex;
+}
+
+.inp-group {
+    width: 100%;
+}
+
+.recherche-poke input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    font-size: 18px;
+}
+
+.recherche-poke label {
+    position: absolute;
+    color: #333;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 8px;
+    transition: all 0.3s ease-in;
+}
+
+.recherche-poke button {
+    margin-left: 5px;
+    padding: 15px;
+}
+
+/* animation d'input */
+
+.recherche-poke:focus-within label,
+.recherche-poke.active-input label {
+    top: -15px;
+    padding-left: 5px;
+    color: #f1f1f1;
 }
 
 /* Bouton de retour */
