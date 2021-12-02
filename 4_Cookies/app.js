@@ -38,6 +38,17 @@ function btnAction(e) {
     }
 }
 
-function creerCookie(name, value, exp) {}
+function creerCookie(name, value, exp) {
+    document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(
+        value
+    )};expires=${exp.toUTCString()}`;
+
+    let info = document.createElement("li");
+    info.innerText = `Cookie ${name} créé.`;
+    affichage.appendChild(info);
+    setTimeout(() => {
+        info.remove();
+    }, 2000);
+}
 
 function listeCookies() {}
