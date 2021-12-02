@@ -63,6 +63,42 @@ h1 {
     color: #f1f1f1;
 }
 
+/* Liste des cartes */
+
+.container {
+    width: 70%;
+    max-width: 1100px;
+    height: auto;
+    margin: 0 auto;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.liste-poke li {
+    width: 250px;
+    height: auto;
+    padding: 15px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.liste-poke h2 {
+    font-size: 19px;
+}
+
+.liste-poke p {
+    font-size: 18px;
+}
+
 /* Bouton de retour */
 
 .btn-home {

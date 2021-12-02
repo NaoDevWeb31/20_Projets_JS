@@ -76,7 +76,7 @@ function createCard(arr) {
         const carte = document.createElement("li");
         let couleur = types[arr[i].type];
         carte.style.background = couleur;
-        const txtCarte = document.createElement("h4");
+        const txtCarte = document.createElement("h2");
         txtCarte.innerText = arr[i].name;
         const idCarte = document.createElement("p");
         idCarte.innerText = `ID# ${arr[i].id}`;
@@ -90,6 +90,33 @@ function createCard(arr) {
 
         listePoke.appendChild(carte);
     }
+}
+
+// Scroll Infini
+
+window.addEventListener("scroll", () => {
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    // scrollTop = scroll depuis le top
+    // scrollHeight = scroll total
+    // clientHeight = hauteur de la fenêtre, partie visible
+
+    // console.log(scrollTop, scrollHeight, clientHeight);
+
+    if (clientHeight + scrollTop >= scrollHeight - 20) {
+        addPoke(6);
+    }
+});
+
+let index = 21;
+
+function addPoke(nb) {
+    if (index > 151) {
+        return;
+    }
+    const arrToAdd = allPokemon.slice(index, index + nb);
+    console.log(index, index + nb);
+    createCard(arrToAdd);
+    index += nb;
 }
 
 // Animation Input
