@@ -2,6 +2,7 @@ let allPokemon = [];
 let tableauFin = [];
 const searchInput = document.querySelector(".recherche-poke input");
 const listePoke = document.querySelector(".liste-poke");
+const resetBouton = document.querySelector(".reset-recherche");
 
 const types = {
     grass: "#78c850",
@@ -114,17 +115,55 @@ function addPoke(nb) {
         return;
     }
     const arrToAdd = allPokemon.slice(index, index + nb);
-    console.log(index, index + nb);
+    // console.log(index, index + nb);
     createCard(arrToAdd);
     index += nb;
 }
+
+// Recherche
+
+// const formRecherche = document.querySelector("form");
+// formRecherche.addEventListener("submit", (e) => {
+//     e.preventDefault();
+//     recherche();
+// });
+
+searchInput.addEventListener("keyup", recherche);
+
+function recherche() {
+    if (index < 151) {
+        addPoke(130);
+    }
+
+    let filter, allLi, titleValue, allTitles;
+    filter = searchInput.value.toUpperCase();
+    allLi = document.querySelectorAll("li");
+    allTitles = document.querySelectorAll("li > h2");
+
+    for (let i = 0; i < allLi.length; i++) {
+        titleValue = allTitles[i].innerText;
+
+        if (titleValue.toUpperCase().indexOf(filter) > -1) {
+            allLi[i].style.display = "flex";
+        } else {
+            allLi[i].style.display = "none";
+        }
+    }
+}
+
+resetBouton.addEventListener("click", (e) => {
+    e.preventDefault();
+    location.reload();
+});
 
 // Animation Input
 
 searchInput.addEventListener("input", (e) => {
     if (e.target.value !== "") {
         e.target.parentNode.classList.add("active-input");
+        resetBouton.style.display = "inline-block";
     } else {
         e.target.parentNode.classList.remove("active-input");
+        resetBouton.style.display = "none";
     }
 });

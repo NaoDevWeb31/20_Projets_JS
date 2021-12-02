@@ -38,6 +38,7 @@ h1 {
     outline: none;
     border-radius: 3px;
     font-size: 18px;
+    position: relative;
 }
 
 .recherche-poke label {
@@ -49,7 +50,19 @@ h1 {
     transition: all 0.3s ease-in;
 }
 
-.recherche-poke button {
+.reset-recherche {
+    border: none;
+    background: none;
+    position: absolute;
+    right: 0;
+    top: 20%;
+    font-size: x-large;
+    margin-right: 1rem;
+    cursor: pointer;
+    display: none;
+}
+
+.recherche-poke button[type="submit"] {
     margin-left: 5px;
     padding: 15px;
 }
