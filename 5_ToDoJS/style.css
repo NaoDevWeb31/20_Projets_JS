@@ -12,6 +12,89 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+header {
+    margin: 50px 0;
+}
+
+h1 {
+    text-align: center;
+    font-size: 5vw;
+}
+
+form {
+    display: block;
+    margin: 0 auto;
+    width: 70%;
+    max-width: 1200px;
+    min-width: 400px;
+}
+
+form label {
+    display: block;
+    font-size: 25px;
+}
+
+form input {
+    width: 100%;
+    padding: 15px;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+form button {
+    padding: 15px;
+    font-size: 20px;
+}
+
+.liste-todo {
+    list-style-type: none;
+    margin: 20px auto 0;
+    width: 70%;
+    max-width: 1200px;
+    min-width: 400px;
+}
+
+li {
+    font-size: 20px;
+    width: 100%;
+    background: #f1f1f1;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    color: #333;
+    margin: 5px 0;
+}
+
+li input {
+    width: 40px;
+    height: 40px;
+    margin-left: 15px;
+}
+
+li button {
+    margin-left: auto;
+    padding: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+button img {
+    width: 40px;
+    pointer-events: none;
+}
+
+li span {
+    font-size: 25px;
+    margin-left: 20px;
+}
+
+/* anim rayure */
+
+li.finDeTache span {
+    text-decoration: line-through;
+}
+
 /* Bouton de retour */
 
 .btn-home {
