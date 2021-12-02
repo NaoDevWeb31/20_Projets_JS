@@ -41,9 +41,7 @@ function btnAction(e) {
 
 function creerCookie(name, value, exp) {
     infoTxt.innerText = "";
-    affichage.childNodes.forEach((child) => {
-        child.remove();
-    });
+    affichage.innerHTML = "";
 
     // Si le cookie à un même nom
     let cookies = document.cookie.split(";");
