@@ -7,6 +7,7 @@ let projects = [
     ["4_Cookies", "Le Créateur de cookies"],
     ["5_ToDoJS", "La To-Do Liste"],
     ["6_Pomodoro", "L'App Pomodoro"],
+    ["7_ValidationForm", "La Validation de Formulaire"],
 ];
 
 for (let index = 0; index < projects.length; index++) {
