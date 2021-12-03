@@ -70,6 +70,24 @@ function rajouteEnleve(e) {
             fond.style.background = `linear-gradient(${inclinaison}deg, ${valCouleurs})`;
         }
     }
+
+    /* MAJ DES INPUTS */
+    allInputs.forEach((inp) => {
+        inp.addEventListener("input", MAJCOLORS);
+    });
+}
+
+/* INPUTS DE BASE */
+inputsCouleur.forEach((inp) => {
+    inp.addEventListener("input", MAJCOLORS);
+});
+
+function MAJCOLORS(e) {
+    let indexEnCours = e.target.getAttribute("data-index");
+    e.target.value = e.target.value.toUpperCase();
+    valCouleurs[indexEnCours - 1] = e.target.value.toUpperCase();
+    e.target.style.background = valCouleurs[indexEnCours - 1];
+    fond.style.background = `linear-gradient(${inclinaison}deg, ${valCouleurs})`;
 }
 
 /* Couleurs aléatoires */
