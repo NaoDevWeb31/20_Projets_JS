@@ -4,6 +4,9 @@ let carteRetournee = false;
 let premiereCarte, secondeCarte;
 let verouillage = false;
 
+let cartesVisibles = [];
+let veutRejouer;
+
 cartes.forEach((carte) => {
     carte.addEventListener("click", retourneCarte);
 });
@@ -28,6 +31,7 @@ function retourneCarte() {
     // console.log(premiereCarte, secondeCarte);
 
     correspondance();
+    recommencerJeu();
 }
 
 function correspondance() {
@@ -38,6 +42,7 @@ function correspondance() {
         // Cartes correspondantes restent visibles
         premiereCarte.removeEventListener("click", retourneCarte);
         secondeCarte.removeEventListener("click", retourneCarte);
+        cartesVisibles.push(premiereCarte, secondeCarte);
     } else {
         verouillage = true; // impossible de retourner d'autres cartes que les 2 visibles
         setTimeout(() => {
@@ -56,3 +61,18 @@ function aleatoire() {
     });
 }
 aleatoire();
+
+function recommencerJeu() {
+    if (cartesVisibles.length === 12) {
+        setTimeout(() => {
+            veutRejouer = confirm(
+                "✅ Victoire ✅\nSouhaitez-vous refaire une autre partie ?"
+            );
+            if (veutRejouer) {
+                location.reload();
+            } else {
+                return;
+            }
+        }, 800);
+    }
+}
