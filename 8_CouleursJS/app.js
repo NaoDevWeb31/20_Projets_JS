@@ -44,6 +44,7 @@ function rajouteEnleve(e) {
         nvCouleur.setAttribute("class", "inp-couleur");
         nvCouleur.setAttribute("data-index", index);
         nvCouleur.setAttribute("maxlength", 7);
+        nvCouleur.setAttribute("aria-label", `Couleur du dégradé ${index}`);
         nvCouleur.value = `#${randomColor.toUpperCase()}`;
         nvCouleur.style.background = `#${randomColor}`;
         containerCouleurs.appendChild(nvCouleur);

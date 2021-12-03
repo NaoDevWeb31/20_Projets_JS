@@ -16,13 +16,17 @@
     </head>
 
     <body>
+        <header>
+            <h1>Créateur de Dégradés Linéaires</h1>
+        </header>
+
         <div class="container-couleurs">
-            <input type="text" data-index="1" maxlength="7" class="inp-couleur">
-            <input type="text" data-index="2" maxlength="7" class="inp-couleur">
+            <input type="text" data-index="1" maxlength="7" class="inp-couleur" aria-label="Couleur du dégradé 1">
+            <input type="text" data-index="2" maxlength="7" class="inp-couleur" aria-label="Couleur du dégradé 2">
         </div>
 
         <div class="container-range">
-            <input type="range" class="inp-range">
+            <input type="range" class="inp-range" aria-label="Inclinaison du dégradé">
         </div>
 
         <div class="container-btn">
@@ -31,7 +35,7 @@
             </button>
 
             <button type="button" class="moins">
-                <img src="ressources/minus.svg" alt="icône plus">
+                <img src="ressources/minus.svg" alt="icône moins">
             </button>
 
             <button type="button" class="random">

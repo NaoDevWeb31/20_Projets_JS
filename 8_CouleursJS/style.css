@@ -16,6 +16,10 @@ body {
     background: #333;
 }
 
+header {
+    margin-bottom: 2rem;
+}
+
 .container-couleurs,
 .container-btn,
 .container-range {
@@ -67,7 +71,7 @@ button img {
 }
 
 .random {
-    font-size: 25px;
+    font-size: x-large;
     width: 200px;
     height: 60px;
 }
