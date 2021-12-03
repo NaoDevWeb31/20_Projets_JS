@@ -1,10 +1,103 @@
-*, ::before, ::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(to right, #b993d6, #8ca6db); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(
+        to right,
+        #b993d6,
+        #8ca6db
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+header {
+    text-align: center;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    padding: 1rem 3rem;
+    background: linear-gradient(117deg, #d5d5d5, #33333366);
+    color: #161616;
+    border-radius: 3px;
+    min-width: 30%;
+    max-width: 80%;
+}
+
+.grille {
+    background: rgb(195, 195, 195);
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(4, 1fr);
+    width: 800px;
+    height: 600px;
+    margin: 75px auto 0;
+}
+
+@media screen and (max-width: 830px) {
+    .grille {
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .grille {
+        grid-template: repeat(6, 1fr) / repeat(2, 1fr);
+        width: auto;
+        height: 830px;
+        margin: 75px auto 4rem;
+    }
+}
+
+.carte {
+    background-color: transparent;
+    perspective: 1000px;
+    margin: 5px;
+}
+
+.double-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.face,
+.arriere {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.face {
+    background: #333;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.face img {
+    width: 120px;
+}
+
+.arriere {
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+}
+
+.active {
+    transform: rotateY(180deg);
 }
