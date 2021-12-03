@@ -1,0 +1,140 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #3c3c3c;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0.6rem 0;
+    text-align: center;
+    color: white;
+    background-color: black;
+}
+
+h1 {
+    font-size: 1.7rem;
+    margin: 0;
+    text-transform: uppercase;
+    font-variant: all-small-caps;
+}
+
+.box-login {
+    flex-shrink: 0;
+    background: #fff;
+    border-radius: 5px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.form-groupe {
+    position: relative;
+}
+
+label {
+    margin: 5px 23px;
+    font-size: 20px;
+    padding: 10px 0 5px 0;
+    display: block;
+    position: relative;
+}
+
+input {
+    display: block;
+    margin: 10px 20px 20px 20px;
+    outline: 0;
+    background: rgb(226, 226, 226);
+    width: 400px;
+    border: 0;
+    padding: 10px 12px;
+    border-radius: 3px;
+    font-size: 22px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 500px) {
+    input {
+        width: 78%;
+    }
+}
+
+.icone-verif {
+    width: 30px;
+    position: absolute;
+    right: 27px;
+    top: 57px;
+    display: none;
+}
+
+.message-alerte {
+    margin: 0px 23px;
+    color: crimson;
+    display: none;
+}
+
+button {
+    display: block;
+    margin: 30px auto;
+    outline: 0;
+    background: rgb(250, 165, 9);
+    width: 90%;
+    border: 0;
+    padding: 15px;
+    border-radius: 3px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: rgb(252, 181, 49);
+}
+
+button:active {
+    background: rgb(250, 165, 9);
+}
+
+.ligne {
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.l1,
+.l2,
+.l3 {
+    width: 30%;
+    height: 5px;
+    margin: 15px 5px 20px;
+    position: relative;
+    display: none;
+}
+
+.l1 {
+    background: rgb(182, 182, 13);
+}
+
+.l2 {
+    background: rgb(151, 85, 85);
+}
+
+.l3 {
+    background: green;
+}
+
+.ligne span {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+}
