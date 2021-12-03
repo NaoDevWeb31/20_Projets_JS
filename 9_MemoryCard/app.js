@@ -24,4 +24,35 @@ function retourneCarte() {
 
     carteRetournee = false;
     secondeCarte = this;
+
+    // console.log(premiereCarte, secondeCarte);
+
+    correspondance();
 }
+
+function correspondance() {
+    if (
+        premiereCarte.getAttribute("data-attr") ===
+        secondeCarte.getAttribute("data-attr")
+    ) {
+        // Cartes correspondantes restent visibles
+        premiereCarte.removeEventListener("click", retourneCarte);
+        secondeCarte.removeEventListener("click", retourneCarte);
+    } else {
+        verouillage = true; // impossible de retourner d'autres cartes que les 2 visibles
+        setTimeout(() => {
+            premiereCarte.childNodes[1].classList.remove("active");
+            secondeCarte.childNodes[1].classList.remove("active");
+
+            verouillage = false;
+        }, 1500);
+    }
+}
+
+function aleatoire() {
+    cartes.forEach((carte) => {
+        let positionAlea = Math.floor(Math.random() * 12);
+        carte.style.order = positionAlea;
+    });
+}
+aleatoire();
