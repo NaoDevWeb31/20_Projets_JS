@@ -54,5 +54,33 @@ function rajouteEnleve(e) {
         // Maj du fond
         fond.style.background = `linear-gradient(${inclinaison}deg, ${valCouleurs})`;
         index++;
+        if (valCouleurs.length > 2) {
+            span.innerText = "";
+        }
+    } else if (e.target.className === "moins") {
+        if (valCouleurs.length === 2) {
+            span.innerText = "Il faut au moins deux couleurs !";
+            setTimeout(() => {
+                span.innerText = "";
+            }, 3500);
+        } else {
+            valCouleurs.pop();
+            allInputs[allInputs.length - 1].remove();
+            index--;
+            fond.style.background = `linear-gradient(${inclinaison}deg, ${valCouleurs})`;
+        }
     }
 }
+
+/* Couleurs aléatoires */
+btnRandom.addEventListener("click", () => {
+    const inputs = document.querySelectorAll(".inp-couleur");
+    for (i = 0; i < valCouleurs.length; i++) {
+        valCouleurs[i] = `#${Math.floor(Math.random() * 16777215).toString(
+            16
+        )}`; // couleur aléatoire en hex
+        inputs[i].value = valCouleurs[i].toUpperCase();
+        inputs[i].style.background = valCouleurs[i].toUpperCase();
+        fond.style.background = `linear-gradient(${inclinaison}deg, ${valCouleurs})`;
+    }
+});
