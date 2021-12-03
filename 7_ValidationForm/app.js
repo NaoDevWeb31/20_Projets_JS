@@ -36,7 +36,7 @@ inpMail.addEventListener("input", (e) => {
     }
 });
 
-// Validation création du MDP
+/* Validation création du MDP */
 
 let valeurInp;
 const specialCar = /[^a-zA-Z0-9]/;
@@ -52,7 +52,7 @@ let objValidation = {
 inpMdp.addEventListener("input", (e) => {
     valeurInp = e.target.value;
 
-    // vérification RegEx et présence de symbole, lettre et chiffre
+    /* vérification RegEx et présence de symbole, lettre et chiffre */
     if (valeurInp.search(specialCar) !== -1) {
         objValidation.symbole = 1;
     }
@@ -63,7 +63,7 @@ inpMdp.addEventListener("input", (e) => {
         objValidation.chiffre = 1;
     }
 
-    // prise en compte de l'effacement de symbole, lettre et chiffre
+    /* prise en compte de l'effacement de symbole, lettre et chiffre */
     if ((e.inputType = "deleteContentBackward")) {
         if (valeurInp.search(specialCar) === -1) {
             objValidation.symbole = 0;
@@ -77,7 +77,7 @@ inpMdp.addEventListener("input", (e) => {
     }
     // console.log(objValidation);
 
-    // Respect de la consigne indiquant la présence d'au moins un symbole, une lettre et un chiffre
+    /*  Respect de la consigne indiquant la présence d'au moins un symbole, une lettre et un chiffre */
     let testAll = 0;
     for (const property in objValidation) {
         if (objValidation[property] > 0) {
@@ -110,5 +110,20 @@ inpMdp.addEventListener("input", (e) => {
         allLigne[0].style.display = "none";
         allLigne[1].style.display = "none";
         allLigne[2].style.display = "none";
+    }
+});
+
+/* confirmation mdp */
+
+inpConfirme.addEventListener("input", (e) => {
+    if (e.target.value.length === 0) {
+        allImg[3].style.display = "inline";
+        allImg[3].src = "ressources/error.svg";
+    } else if (e.target.value === valeurInp) {
+        allImg[3].style.display = "inline";
+        allImg[3].src = "ressources/check.svg";
+    } else {
+        allImg[3].style.display = "inline";
+        allImg[3].src = "ressources/error.svg";
     }
 });
