@@ -9,6 +9,7 @@ let projects = [
     ["6_Pomodoro", "L'Application Pomodoro"],
     ["7_ValidationForm", "La Validation de Formulaire"],
     ["8_CouleursJS", "L'Application de Création de dégradés linéaires"],
+    ["9_MemoryCard", "Le Jeu des Cartes mémoires"],
 ];
 
 for (let index = 0; index < projects.length; index++) {
