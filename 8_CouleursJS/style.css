@@ -1,5 +1,79 @@
-*, ::before, ::after {
+*,
+::before,
+::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #333;
+}
+
+.container-couleurs,
+.container-btn,
+.container-range {
+    height: auto;
+    width: 30%;
+    max-width: 400px;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-couleurs {
+    flex-direction: column;
+}
+
+input {
+    width: 100%;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 25px;
+    outline: none;
+    border: 2px solid #f1f1f1;
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.container-btn {
+    align-items: center;
+}
+
+button {
+    border: none;
+    outline: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+button img {
+    width: 30px;
+    pointer-events: none;
+}
+
+.random {
+    font-size: 25px;
+    width: 200px;
+    height: 60px;
+}
+
+span {
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: center;
 }
