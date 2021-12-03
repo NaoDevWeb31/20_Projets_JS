@@ -20,13 +20,18 @@ h1 {
     color: #f1f1f1;
     text-align: center;
 }
+@media screen and (max-width: 400px) {
+    h1 {
+        font-size: 3rem;
+    }
+}
 
 form,
 .affichage {
     margin: 0 auto;
     width: 50%;
     max-width: 800px;
-    min-width: 400px;
+    min-width: 250px;
 }
 
 input {
@@ -40,10 +45,11 @@ input {
 .affichage {
     display: flex;
     justify-content: center;
+    margin-bottom: 6rem;
 }
 
 .carte {
-    width: 500px;
+    width: auto;
     height: auto;
     position: relative;
     margin-top: 100px;

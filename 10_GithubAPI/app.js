@@ -22,7 +22,7 @@ function creationCarte(user) {
         <ul class="cont-infos">
             <li class="followers">Followers : ${user.followers}</li>
             <li class="etoiles">Repos : ${user.public_repos}</li>
-            <li class="bio">Followers : ${user.bio}</li>
+            <li class="bio">Bio : ${user.bio}</li>
         </ul>
     </div>
     `;
