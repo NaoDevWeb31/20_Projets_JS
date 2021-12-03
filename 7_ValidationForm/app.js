@@ -20,3 +20,18 @@ inpUtilisateur.addEventListener("input", (e) => {
         allSpan[0].style.display = "inline";
     }
 });
+
+inpMail.addEventListener("input", (e) => {
+    const regexEmail =
+        /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{3}(?:\.[a-z]{2})?)$/i;
+
+    if (e.target.value.search(regexEmail) === 0) {
+        allImg[1].style.display = "inline";
+        allImg[1].src = "ressources/check.svg";
+        allSpan[1].style.display = "none";
+    } else if (e.target.value.search(regexEmail) === -1) {
+        allImg[1].style.display = "inline";
+        allImg[1].src = "ressources/error.svg";
+        allSpan[1].style.display = "inline";
+    }
+});
