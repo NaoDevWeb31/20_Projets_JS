@@ -19,6 +19,12 @@ h1 {
     font-size: 4vw;
 }
 
+@media screen and (max-width: 500px) {
+    h1 {
+        font-size: 20px;
+    }
+}
+
 input {
     display: block;
     margin: 10px auto;

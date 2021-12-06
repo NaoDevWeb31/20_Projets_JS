@@ -21,12 +21,24 @@ h1 {
     font-size: 5vw;
 }
 
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 40px;
+    }
+}
+
 form {
     display: block;
     margin: 0 auto;
-    width: 70%;
-    max-width: 1200px;
-    min-width: 400px;
+    width: 90%;
+}
+
+@media screen and (min-width: 426px) {
+    form {
+        width: 70%;
+        max-width: 1200px;
+        min-width: 400px;
+    }
 }
 
 form label {

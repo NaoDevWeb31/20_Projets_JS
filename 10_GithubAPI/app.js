@@ -20,9 +20,9 @@ function creationCarte(user) {
         <img src="${user.avatar_url}" alt="icône avatar" class="avatar">
         <h2>${user.name}</h2>
         <ul class="cont-infos">
-            <li class="followers">Followers : ${user.followers}</li>
-            <li class="etoiles">Repos : ${user.public_repos}</li>
-            <li class="bio">Bio : ${user.bio}</li>
+            <li class="followers"><span class="infos-label">Followers:</span> ${user.followers}</li>
+            <li class="etoiles"><span class="infos-label">Repos:</span> ${user.public_repos}</li>
+            <li class="bio"><div class="infos-label">Bio:</div> <div>${user.bio}</div></li>
         </ul>
     </div>
     `;

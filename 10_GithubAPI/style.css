@@ -90,3 +90,21 @@ li {
 li:nth-child(1) {
     margin-top: 15px;
 }
+
+.bio {
+    display: flex;
+}
+
+.infos-label {
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+@media screen and (max-width: 1200px) {
+    .bio {
+        flex-direction: column;
+    }
+    .bio > .infos-label {
+        margin-right: 0;
+    }
+}
