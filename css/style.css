@@ -16,6 +16,20 @@ body {
     color: #2c3e50;
 }
 
+@media screen and (max-width: 425px) {
+    h1 {
+        font-size: 40px !important;
+        font-weight: 500 !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .list-group {
+        align-items: start !important;
+        margin-left: 2rem !important;
+    }
+}
+
 .list-group-item {
     width: fit-content;
     font-size: x-large;
