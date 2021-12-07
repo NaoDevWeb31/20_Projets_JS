@@ -23,8 +23,14 @@ button {
     font-size: 25px;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 h1 {
-    margin-top: 6rem;
+    margin: 3.5rem 0;
     text-align: center;
     font-size: 40px;
 }
@@ -32,8 +38,8 @@ h1 {
 .info {
     font-size: 30px;
     text-align: center;
-    margin-top: 2rem;
     display: block;
+    margin-top: 3rem;
 }
 
 .form-inscription,
@@ -46,10 +52,6 @@ h1 {
     align-items: center;
     flex-direction: column;
     color: #f1f1f1;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 h2 {
@@ -86,14 +88,9 @@ input {
     }
     h1 {
         font-size: 30px;
-        margin-top: 3.5rem;
+        margin: 2rem 0;
     }
     .info {
-        margin-top: 7rem;
         font-size: 20px;
-    }
-    .form-inscription,
-    .form-connexion {
-        top: 60%;
     }
 }
