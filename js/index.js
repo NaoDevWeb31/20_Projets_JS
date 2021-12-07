@@ -12,6 +12,7 @@ let projects = [
     ["9_MemoryCard", "Le Jeu des Cartes mémoires"],
     ["10_GithubAPI", "La Recherche d'utilisateur GitHub"],
     ["11_Authentification", "Le Système d'Authentification"],
+    ["12_Slider", "Le Slider"],
 ];
 
 for (let index = 0; index < projects.length; index++) {
