@@ -90,5 +90,10 @@ input {
     }
     .info {
         margin-top: 7rem;
+        font-size: 20px;
+    }
+    .form-inscription,
+    .form-connexion {
+        top: 60%;
     }
 }
