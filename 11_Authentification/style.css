@@ -27,7 +27,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 550px;
+    margin-bottom: 6rem;
 }
 
 h1 {
