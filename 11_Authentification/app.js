@@ -72,3 +72,12 @@ formInscription.addEventListener("submit", (e) => {
         }
     );
 });
+
+// Deco
+
+deco.addEventListener("click", (e) => {
+    e.preventDefault();
+    signOut(auth).then(() => {
+        console.log("Déconnecté");
+    });
+});
