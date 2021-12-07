@@ -16,6 +16,37 @@
     </head>
 
     <body>
+        <header class="cont-btns">
+            <button class="btn-inscription">S'inscrire</button>
+            <button class="btn-connexion">Se connecter</button>
+            <button class="btn-deco">Se déconnecter</button>
+        </header>
+        <h1>Bienvenue, inscrivez-vous ou connectez-vous.</h1>
+        <p class="info">Contenu public.</p>
+
+        <form class="form-inscription">
+
+            <h2>Inscription</h2>
+            <label for="emailInscription">Entrez un email</label>
+            <input type="email" class="email-inscription" id="emailInscription">
+
+            <label for="mdpInscription">Entrez un mdp</label>
+            <input type="password" class="mdp-inscription" id="mdpInscription">
+
+            <button type="submit">S'inscrire</button>
+        </form>
+
+        <form class="form-connexion">
+
+            <h2>Connexion</h2>
+            <label for="emailConnexion">Entrez un email</label>
+            <input type="email" class="email-connexion" id="emailConnexion">
+
+            <label for="mdpConnexion">Entrez un mdp</label>
+            <input type="password" class="mdp-connexion" id="mdpConnexion">
+
+            <button type="submit">Se connecter</button>
+        </form>
 
         <footer class="btn-home">
             <a href="../index.html" role="button">
@@ -49,6 +80,8 @@
 
             const auth = getAuth();
             const db = getFirestore();
+
+            console.log(auth);
         </script>
         <script src="app.js"></script>
     </body>
