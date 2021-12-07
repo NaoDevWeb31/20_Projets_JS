@@ -5,6 +5,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase
 import {
     getAuth,
     createUserWithEmailAndPassword,
+    signOut,
+    signInWithEmailAndPassword,
 } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js";
 
@@ -80,4 +82,22 @@ deco.addEventListener("click", (e) => {
     signOut(auth).then(() => {
         console.log("Déconnecté");
     });
+});
+
+// Connexion
+
+formConnexion.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const mailValeur = emailConnexion.value;
+    const mdpConnexionValeur = mdpConnexion.value;
+
+    signInWithEmailAndPassword(auth, mailValeur, mdpConnexionValeur).then(
+        (userCredential) => {
+            // Logged in
+            console.log("CONNEXION !", userCredential.user);
+            formConnexion.reset();
+            formConnexion.classList.toggle("apparition");
+        }
+    );
 });
