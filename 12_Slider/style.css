@@ -1,10 +1,117 @@
-*, ::before, :after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+*,
+::before,
+:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f1f1f1;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f1f1;
+}
+
+h1 {
+    font-family: "Raleway", sans-serif;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.slider {
+    width: 900px;
+    height: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.cont-slides {
+    width: 100%;
+    height: 100%;
+}
+
+.cont-slides img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.commandes {
+    top: 90px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.commandes button {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.commandes img {
+    width: 30px;
+    position: relative;
+}
+
+.commandes button:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 5px;
+}
+
+.commandes button:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+    right: 5px;
+}
+
+.commandes button:nth-child(1) img {
+    left: -4px;
+}
+
+.commandes button:nth-child(2) img {
+    right: -4px;
+}
+
+.cercles {
+    position: absolute;
+    top: 123%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cercle {
+    width: 50px;
+    height: 50%;
+    border-radius: 50%;
+    margin: 5px;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #333;
+}
+
+.active-cercle {
+    background: rgb(58, 36, 156);
+}
+
+.active {
+    opacity: 1 !important;
+}
+
+.espace {
+    height: 9rem;
 }
