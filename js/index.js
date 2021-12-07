@@ -11,6 +11,7 @@ let projects = [
     ["8_CouleursJS", "L'Application de Création de dégradés linéaires"],
     ["9_MemoryCard", "Le Jeu des Cartes mémoires"],
     ["10_GithubAPI", "La Recherche d'utilisateur GitHub"],
+    ["11_Authentification", "Le Système d'Authentification"],
 ];
 
 for (let index = 0; index < projects.length; index++) {
