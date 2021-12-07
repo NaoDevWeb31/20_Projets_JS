@@ -7,6 +7,7 @@ import {
     createUserWithEmailAndPassword,
     signOut,
     signInWithEmailAndPassword,
+    onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js";
 
@@ -46,17 +47,21 @@ const mdpInscription = document.querySelector(".mdp-inscription");
 btnInscription.addEventListener("click", () => {
     if (formConnexion.classList.contains("apparition")) {
         formConnexion.classList.remove("apparition");
+        info.classList.toggle("disparition-info");
     }
 
     formInscription.classList.toggle("apparition");
+    info.classList.toggle("disparition-info");
 });
 
 btnConnexion.addEventListener("click", () => {
     if (formInscription.classList.contains("apparition")) {
         formInscription.classList.remove("apparition");
+        info.classList.toggle("disparition-info");
     }
 
     formConnexion.classList.toggle("apparition");
+    info.classList.toggle("disparition-info");
 });
 
 formInscription.addEventListener("submit", (e) => {
@@ -100,4 +105,21 @@ formConnexion.addEventListener("submit", (e) => {
             formConnexion.classList.toggle("apparition");
         }
     );
+});
+
+// Gérer le contenu
+
+const h1 = document.querySelector("h1");
+const info = document.querySelector(".info");
+
+onAuthStateChanged(auth, (utilisateur) => {
+    // User is signed in
+    if (utilisateur) {
+        info.innerText = "Voici le contenu privé !";
+        h1.innerText = "Vous voilà de retour ! 😁";
+    } else {
+        console.log("Utilisateur s'est déconnecté");
+        info.innerText = "Contenu public.";
+        h1.innerText = "Bienvenue, inscrivez-vous ou connectez-vous";
+    }
 });

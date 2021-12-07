@@ -32,6 +32,7 @@ h1 {
     font-size: 30px;
     text-align: center;
     margin-top: 2rem;
+    display: block;
 }
 
 .form-inscription,
@@ -67,4 +68,8 @@ input {
 
 .apparition {
     display: flex;
+}
+
+.disparition-info {
+    display: none;
 }
