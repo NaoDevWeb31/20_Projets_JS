@@ -1,4 +1,6 @@
-*, ::before, ::after {
+*,
+::before,
+::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -6,5 +8,104 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(to right, #42275a, #734b6d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(
+        to right,
+        #42275a,
+        #734b6d
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+header {
+    margin: 30px auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    color: #f1f1f1;
+}
+
+.container-choix {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.case {
+    height: 310px;
+    width: 210px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin: 10px;
+    border: 3px solid #000;
+    background: #fff;
+}
+
+#premiere-case {
+    margin-right: 30px;
+}
+
+.destroy {
+    width: 200px;
+    height: 200px;
+    border-radius: 25px;
+    background: #333;
+    border: 2px solid #f1f1f1;
+    color: white;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.base {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 300px;
+    width: 200px;
+    background: #000;
+    cursor: pointer;
+}
+
+.container-cases {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 689px) {
+    .container-cases {
+        margin-bottom: 4rem;
+        justify-content: space-evenly;
+    }
+
+    .container-cases > .case {
+        max-width: 130px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    h1 {
+        font-size: 40px;
+    }
+
+    #premiere-case {
+        margin-right: 10px;
+        margin-bottom: 20px;
+    }
+
+    .destroy {
+        height: 100px;
+        margin-bottom: 30px;
+    }
+    .container-cases > .case {
+        max-width: 80px;
+    }
 }
