@@ -13,6 +13,7 @@ let projects = [
     ["10_GithubAPI", "La Recherche d'utilisateur GitHub"],
     ["11_Authentification", "Le Système d'Authentification"],
     ["12_Slider", "Le Slider"],
+    ["13_DragAndDrop", "L'Application de Drag & Drop"],
 ];
 
 for (let index = 0; index < projects.length; index++) {
