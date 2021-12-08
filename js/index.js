@@ -14,6 +14,7 @@ let projects = [
     ["11_Authentification", "Le Système d'Authentification"],
     ["12_Slider", "Le Slider"],
     ["13_DragAndDrop", "L'Application de Drag & Drop"],
+    ["14_ParticulesJS", "L'Application de création de Particules en JS"],
 ];
 
 for (let index = 0; index < projects.length; index++) {
