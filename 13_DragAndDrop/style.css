@@ -85,8 +85,7 @@ h1 {
         margin-bottom: 4rem;
         justify-content: space-evenly;
     }
-
-    .container-cases > .case {
+    .customize-width {
         max-width: 130px;
     }
 }
@@ -105,7 +104,7 @@ h1 {
         height: 100px;
         margin-bottom: 30px;
     }
-    .container-cases > .case {
+    .customize-width {
         max-width: 80px;
     }
 }
