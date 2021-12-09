@@ -1,4 +1,6 @@
 const container = document.querySelector(".grille");
+const affichage = document.querySelector("h2");
+let resultats = 0;
 let toutesLesDivs;
 let alienInvaders = [];
 let tireurPosition = 229;
@@ -103,8 +105,24 @@ function bougerLesAliens() {
     for (let i = 0; i < alienInvaders.length; i++) {
         toutesLesDivs[alienInvaders[i]].classList.add("alien");
     }
+
+    if (toutesLesDivs[tireurPosition].classList.contains("alien", "tireur")) {
+        affichage.textContent = "🪦 Game Over 🪦";
+        affichage.style.color = "red";
+        toutesLesDivs[tireurPosition].classList.add("boom");
+        clearInterval(invaderId);
+    }
+
+    for (let i = 0; i < alienInvaders.length; i++) {
+        if (alienInvaders[i] > toutesLesDivs.length - width) {
+            affichage.textContent = "🪦 Game Over 🪦";
+            affichage.style.color = "red";
+            clearInterval(invaderId);
+        }
+        
+    }
 }
-invaderId = setInterval(bougerLesAliens, 500);
+invaderId = setInterval(bougerLesAliens, 100);
 
 
 // Le laser
@@ -126,6 +144,15 @@ function tirer(e) {
 
             setTimeout(() => { toutesLesDivs[laserEnCours].classList.remove("boom"); }, 250)
             clearInterval(laserId);
+
+            resultats++;
+            if (resultats === 36) {
+                affichage.textContent = "🎉 Bravo, c'est gagné 🎉";
+                affichage.style.color = "green";
+                clearInterval(invaderId);
+            } else {
+                affichage.textContent = `Score : ${resultats}`;
+            }
         }
 
         if (laserEnCours < width) {
