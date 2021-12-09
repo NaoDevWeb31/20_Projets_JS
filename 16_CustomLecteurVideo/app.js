@@ -5,7 +5,7 @@ const barreOrange = document.querySelector(".barre-orange");
 const progression = document.querySelector(".juice");
 const btnMute = document.getElementById("mute");
 const imgMute = document.querySelector("#mute img");
-const pleinEcran = document.getElementById("fullscreen");
+const btnPleinEcran = document.getElementById("fullscreen");
 const curseurVol = document.getElementById("volume-slider");
 
 btnPlayPause.addEventListener("click", togglePlayPause);
@@ -85,4 +85,34 @@ btnMute.addEventListener("click", () => {
         imgMute.setAttribute("alt", "Icône du son désactivé");
         curseurVol.value = video.volume = 0;
     }
+});
+
+// Clic sur la barre
+let rect = barreOrange.getBoundingClientRect();
+let largeur = rect.width;
+
+window.addEventListener("resize", () => {
+    rect = barreOrange.getBoundingClientRect();
+    largeur = rect.width;
+});
+
+barreOrange.addEventListener("click", (e) => {
+    let x = e.clientX - rect.left;
+
+    let widthPercent = (x * 100) / largeur;
+    console.log(widthPercent);
+
+    let durationVideo = video.duration;
+
+    // position en sec par rapport au %
+    video.currentTime = durationVideo * (widthPercent / 100);
+});
+
+// Plein écran
+video.addEventListener("dblclick", () => {
+    video.requestFullscreen();
+});
+
+btnPleinEcran.addEventListener("click", () => {
+    video.requestFullscreen();
 });
