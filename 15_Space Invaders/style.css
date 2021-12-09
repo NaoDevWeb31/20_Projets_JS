@@ -1,1 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&family=Russo+One&display=swap");
 
+@keyframes background-defile {
+    from {
+        background-position-y: 0px;
+    }
+    to {
+        background-position-y: 256px;
+    }
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+    font-family: "Russo One", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 25px;
+}
+
+@media screen and (max-width: 425px) {
+    h1 {
+        letter-spacing: 14px;
+    }
+}
+
+h2 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 1.17em;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.grille {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #000;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background: url(ressources/background-black.png);
+    animation: background-defile 5s linear infinite;
+}
+
+.grille div {
+    width: 25px;
+    height: 25px;
+}
+
+.tireur {
+    background: url(ressources/vaisseau.png);
+    transform: rotate(180deg);
+    background-position: center;
+    background-size: contain;
+}
+
+.alien {
+    background: url(ressources/ennemies.png);
+    background-position: center;
+    background-size: contain;
+}
+
+.boom {
+    background-color: red;
+}
+
+.laser {
+    background-color: orange;
+}
+
+footer {
+    margin-left: -0.5rem;
+}
