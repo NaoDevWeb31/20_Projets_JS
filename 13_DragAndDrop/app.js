@@ -18,7 +18,7 @@ base.setAttribute("data-src", `https://loremflickr.com/200/300?random=${indexPho
 
 for (const vide of allCases) {
     // console.log(vide);
-    vide.addEventListener("drag", function (e) {}, false);
+    vide.addEventListener("drag", drag, false);
     vide.addEventListener("dragstart", dragStart, false);
     vide.addEventListener("dragover", dragOver, false);
     vide.addEventListener("dragenter", dragEnter, false);
@@ -53,6 +53,8 @@ function dragDrop(e) {
 
     // Verrouillage
     this.removeEventListener("drop", dragDrop);
+    this.removeEventListener("drag", drag);
+    this.removeEventListener("dragstart", dragStart);
     this.removeEventListener("dragenter", dragEnter);
     this.removeEventListener("dragover", dragOver);
 
@@ -60,30 +62,28 @@ function dragDrop(e) {
 
     this.appendChild(base);
     this.childNodes[0].setAttribute("draggable", false);
+    e.dataTransfer.clearData()
     nvBase();
 
     choix.push(photoEnCours);
     if (choix.length === 3) {
         premiereCase.querySelector(".base").setAttribute("draggable", false);
-        allCases.forEach((oneCase) => {
-            oneCase.querySelector(".base").style.cursor = "default";
-        });
         for (let index = 1; index < allCases.length - 1; index++) {
             allCases[index].classList.remove("customize-width");
         }
 
         setTimeout(() => {
             alert("Sélection terminée !");
+            const bases = document.querySelectorAll(".base");
+            bases.forEach((oneBase) => {
+                oneBase.style.cursor = "default";
+            });
         }, 200);
     }
 }
 
-function dragOver(e) {
-    e.preventDefault();
-}
-
-function dragEnter(e) {
-    e.preventDefault();
+function drag(e) {
+    
 }
 
 function dragStart(e) {
@@ -92,4 +92,12 @@ function dragStart(e) {
     // console.log(img);
     e.dataTransfer.setDragImage(img, 0, 0);
     e.dataTransfer.setData("text/uri-list", img.src);
+}
+
+function dragOver(e) {
+    e.preventDefault();
+}
+
+function dragEnter(e) {
+    e.preventDefault();
 }
