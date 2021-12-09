@@ -9,6 +9,14 @@
     }
 }
 
+.cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 510px;
+}
+
 header {
     text-align: center;
 }

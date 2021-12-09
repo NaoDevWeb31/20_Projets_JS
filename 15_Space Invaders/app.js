@@ -70,7 +70,6 @@ function deplacerLeTireur(e) {
 }
 document.addEventListener("keydown", deplacerLeTireur);
 
-
 // Bouger les aliens
 let descendreRight = true;
 let descendreLeft = true;
@@ -122,7 +121,7 @@ function bougerLesAliens() {
         
     }
 }
-invaderId = setInterval(bougerLesAliens, 100);
+invaderId = setInterval(bougerLesAliens, 200);
 
 
 // Le laser
@@ -168,3 +167,7 @@ function tirer(e) {
     }
 }
 document.addEventListener("keyup", tirer);
+
+setTimeout(() => {
+    alert("‼️ Attention ‼️\n Pour pourvoir jouer à ce jeu, un clavier est indispensable !")
+}, 100)
