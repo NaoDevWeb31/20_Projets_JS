@@ -14,12 +14,15 @@ allCases.push(destroy);
 let indexPhoto = 1;
 
 base.style.backgroundImage = `url("https://loremflickr.com/200/300?random=${indexPhoto}")`;
+base.setAttribute("data-src", `https://loremflickr.com/200/300?random=${indexPhoto}`);
 
 for (const vide of allCases) {
     // console.log(vide);
-    vide.addEventListener("dragover", dragOver);
-    vide.addEventListener("dragenter", dragEnter);
-    vide.addEventListener("drop", dragDrop);
+    vide.addEventListener("drag", function (e) {}, false);
+    vide.addEventListener("dragstart", dragStart, false);
+    vide.addEventListener("dragover", dragOver, false);
+    vide.addEventListener("dragenter", dragEnter, false);
+    vide.addEventListener("drop", dragDrop, false);
 }
 
 function nvBase() {
@@ -28,12 +31,14 @@ function nvBase() {
     newBase.setAttribute("draggable", "true");
     indexPhoto++;
     newBase.style.backgroundImage = `url(https://loremflickr.com/200/300?random=${indexPhoto})`;
+    newBase.setAttribute("data-src", `https://loremflickr.com/200/300?random=${indexPhoto}`);
     photoEnCours = `url(https://loremflickr.com/200/300?random=${indexPhoto})`;
     premiereCase.appendChild(newBase);
     base = newBase;
 }
 
-function dragDrop() {
+function dragDrop(e) {
+    e.preventDefault();
     if (this.id === "premiere-case") {
         return; // empêcher de déposer plusieurs photos sur cette case
     }
@@ -59,7 +64,11 @@ function dragDrop() {
 
     choix.push(photoEnCours);
     if (choix.length === 3) {
-        for (let index = 1; index < allCases.length; index++) {
+        premiereCase.querySelector(".base").setAttribute("draggable", false);
+        allCases.forEach((oneCase) => {
+            oneCase.querySelector(".base").style.cursor = "default";
+        });
+        for (let index = 1; index < allCases.length - 1; index++) {
             allCases[index].classList.remove("customize-width");
         }
 
@@ -75,4 +84,12 @@ function dragOver(e) {
 
 function dragEnter(e) {
     e.preventDefault();
+}
+
+function dragStart(e) {
+    var img = new Image();
+    img.src = e.target.dataset.src;
+    // console.log(img);
+    e.dataTransfer.setDragImage(img, 0, 0);
+    e.dataTransfer.setData("text/uri-list", img.src);
 }
