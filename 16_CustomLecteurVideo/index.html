@@ -17,6 +17,35 @@
     </head>
 
     <body>
+        <header>
+            <h1>Lecteur Vidéo</h1>
+        </header>
+
+        <main class="container-video">
+
+            <video src="ressources/video.mp4" class="video"></video>
+
+            <div class="controls">
+                <div class="barre-orange">
+                    <div class="juice"></div>
+                </div>
+
+                <div class="buttons">
+                    <button id="play-pause">
+                        <img src="ressources/play.svg" alt="Icône de lecture">
+                    </button>
+
+                    <button id="mute" aria-label="Bouton mute">Mute</button>
+
+                    <input type="range" id="volume-slider" min="0" max="100" value="50" step="1" aria-label="Curseur de volume">
+
+                    <button id="fullscreen" aria-label="Bouton lecteur plein écran">
+                        <img src="ressources/fullscreen.svg" alt="Icône lecteur plein écran">
+                    </button>
+                </div>
+            </div>
+
+        </main>
 
 
         <footer class="btn-home">

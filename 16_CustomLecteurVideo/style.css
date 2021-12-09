@@ -1,6 +1,114 @@
-*, ::before, ::after {
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@300;400;500;700&display=swap");
+
+*,
+::before,
+::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+body {
+    display: flex;
+    background: rgb(34, 32, 32);
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    flex-wrap: wrap;
+    font-family: "Antonio", sans-serif;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        height: 70vh;
+    }
+}
+
+header {
+    text-align: center;
+    width: 100%;
+    height: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        height: 0px;
+    }
+}
+
+h1 {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.container-video {
+    width: 800px;
+    position: relative;
+    overflow: hidden;
+}
+
+.video {
+    width: 100%;
+}
+
+.controls {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    flex-wrap: wrap;
+    background: rgba(0, 0, 0, 0.7);
+    transform: translateY(90%);
+    transition: all 0.2s;
+}
+
+.container-video:hover .controls {
+    transform: translateY(0);
+}
+
+.buttons {
+    padding: 5px 10px 10px;
+}
+
+.buttons button {
+    background: none;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    color: #fff;
+}
+
+#mute {
+    position: relative;
+    top: -5px;
+    margin: 0 12px;
+}
+
+#play-pause img {
+    width: 30px;
+    position: relative;
+    top: 5px;
+}
+
+.barre-orange {
+    height: 10px;
+    width: 100%;
+    background: #000;
+    cursor: pointer;
+}
+
+.juice {
+    height: 10px;
+    background-color: orangered;
+}
+
+#fullscreen {
+    position: absolute;
+    right: 15px;
+    top: 25px;
+}
+
+#fullscreen img {
+    width: 20px;
+}
