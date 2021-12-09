@@ -85,6 +85,12 @@ h1 {
     margin: 0 12px;
 }
 
+#mute img {
+    width: 30px;
+    position: relative;
+    top: 10px;
+}
+
 #play-pause img {
     width: 30px;
     position: relative;
