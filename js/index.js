@@ -17,6 +17,7 @@ let projects = [
     ["14_ParticulesJS", "L'Application de création de Particules en JS"],
     ["15_Space Invaders", 'Le Jeu "Space-Invaders"'],
     ["16_CustomLecteurVideo", "Le Lecteur vidéo"],
+    ["17_CasseBriques", 'Le Jeu "Casse-Briques"'],
 ];
 
 for (let index = 0; index < projects.length; index++) {
