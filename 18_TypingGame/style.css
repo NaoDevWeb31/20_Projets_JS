@@ -1,11 +1,97 @@
-*, ::before, ::after{
+@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
+
+*,
+::before,
+::after {
     box-sizing: border-box;
-    margin: 0; 
+    margin: 0;
     padding: 0;
 }
 
 body {
     height: 100vh;
-    background: linear-gradient(to right, #1488cc, #2b32b2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(
+        to right,
+        #1488cc,
+        #2b32b2
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    text-align: center;
+    margin: 2rem 0 3rem 0;
+    color: white;
+}
+
+h1 {
+    font-size: 80px;
+    font-family: "Special Elite", cursive;
+    letter-spacing: 5px;
+}
+
+main {
+    min-height: 390px;
+}
+
+h2 {
+    margin: 20px 0;
+    text-align: center;
+    font-size: 80px;
+}
+
+.container {
+    background: #f1f1f1;
+    padding: 15px;
+    border-radius: 10px;
+    width: 900px;
+    max-width: 90%;
+    margin: 70px auto 0;
+    color: #333;
+}
+
+.phraseAEcrire {
+    margin: 20px 10px;
+    font-size: 25px;
+}
+
+.phrase-test {
+    background-color: transparent;
+    border: 2px solid #333;
+    font-size: 30px;
+    color: #333;
+    width: 100%;
+    resize: none;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+    header {
+        margin-bottom: 2rem;
+    }
+    h1 {
+        font-size: 40px;
+    }
+    h2 {
+        font-size: 30px;
+    }
+    .container {
+        margin-top: 40px;
+    }
+    .phraseAEcrire {
+        font-size: 15px;
+    }
+    .phrase-test {
+        font-size: 20px;
+    }
 }
