@@ -18,6 +18,7 @@ let projects = [
     ["15_Space Invaders", 'Le Jeu "Space-Invaders"'],
     ["16_CustomLecteurVideo", "Le Lecteur vidéo"],
     ["17_CasseBriques", 'Le Jeu "Casse-Briques"'],
+    ["18_TypingGame", "Le Jeu de Vitesse d'écriture"],
 ];
 
 for (let index = 0; index < projects.length; index++) {
