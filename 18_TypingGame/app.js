@@ -6,7 +6,7 @@ const scoreAffichage = document.querySelector(".score");
 const phraseAEcrire = document.querySelector(".phraseAEcrire");
 const phraseTest = document.querySelector(".phrase-test");
 
-let temps = 60;
+let temps = 0;
 let score = 0;
 let phrasePourScore;
 let nbPhrasesEcrites = 0;
@@ -22,13 +22,15 @@ function time() {
     scoreAffichage.innerText = `Score : ${score}`;
     if (temps === 0) {
         clearInterval(timer);
-        alert(
-            `Vous avez pu, en 60 secondes, écrire ${nbPhrasesEcrites} phrases complètes contenant au total ${score} caractères !`
-        );
-        let veutRecommencer = confirm("Souhaitez-vous recommencer ?");
-        if (veutRecommencer) {
-            location.reload();
-        }
+        setTimeout(() => {
+            alert(
+                `Vous avez pu, en 60 secondes, écrire ${nbPhrasesEcrites} phrases complètes contenant au total ${score} caractères !`
+            );
+            let veutRecommencer = confirm("Souhaitez-vous recommencer ?");
+            if (veutRecommencer) {
+                location.reload();
+            }
+        }, 100);
     }
 }
 
@@ -45,13 +47,26 @@ async function afficherNvPhrase() {
 
     phrase.split("").forEach(carac => {
         const caracSpan = document.createElement("span");
+        if (carac === "’") {
+            carac = "'";
+        }
         caracSpan.innerText = carac;
         phraseAEcrire.appendChild(caracSpan);
     });
 
     phraseTest.value = null;
 }
-afficherNvPhrase();
+setTimeout(() => {
+    let commencer = confirm(
+        "🕹 Bienvenue sur le Speed Typing Game 🕹\nBut du jeu : Tapez les phrases le plus vite possible 🎯\n\nÊtes-vous prêt à commencer le jeu ?"
+    );
+    if (commencer) {
+        temps = 61;
+        afficherNvPhrase();
+    } else {
+        clearInterval(timer);
+    }
+}, 500);
 
 phraseTest.addEventListener("input", () => {
     const tableauPhrase = phraseAEcrire.querySelectorAll("span"); // contient chaque lettre de la phrase à recopier
