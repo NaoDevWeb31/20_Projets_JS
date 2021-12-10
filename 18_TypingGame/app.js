@@ -10,6 +10,8 @@ let temps = 0;
 let score = 0;
 let phrasePourScore;
 let nbPhrasesEcrites = 0;
+let nbParties = 0;
+let scoreFinal = 0;
 
 tempsAffichage.innerText = `Temps : ${temps}`;
 scoreAffichage.innerText = `Score : ${score}`;
@@ -22,6 +24,10 @@ function time() {
     scoreAffichage.innerText = `Score : ${score}`;
     if (temps === 0) {
         clearInterval(timer);
+        nbParties++;
+        scoreFinal += score;
+        localStorage.setItem("nbParties", nbParties);
+        localStorage.setItem("scoreFinal", scoreFinal);
         setTimeout(() => {
             alert(
                 `Vous avez pu, en 60 secondes, écrire ${nbPhrasesEcrites} phrases complètes contenant au total ${score} caractères !`
@@ -29,6 +35,11 @@ function time() {
             let veutRecommencer = confirm("Souhaitez-vous recommencer ?");
             if (veutRecommencer) {
                 location.reload();
+            } else {
+                alert(
+                    `🏁 Fin de Jeu 🏁\nNombre de parties : ${nbParties}\nScore final : ${scoreFinal}`
+                );
+                localStorage.clear();
             }
         }, 100);
     }
@@ -56,17 +67,26 @@ async function afficherNvPhrase() {
 
     phraseTest.value = null;
 }
-setTimeout(() => {
-    let commencer = confirm(
-        "🕹 Bienvenue sur le Speed Typing Game 🕹\nBut du jeu : Tapez les phrases le plus vite possible 🎯\n\nÊtes-vous prêt à commencer le jeu ?"
-    );
-    if (commencer) {
-        temps = 61;
-        afficherNvPhrase();
-    } else {
-        clearInterval(timer);
-    }
-}, 500);
+nbParties = JSON.parse(localStorage.getItem("nbParties")) || 0;
+scoreFinal = JSON.parse(localStorage.getItem("scoreFinal")) || 0;
+// console.log(nbParties);
+if (nbParties < 1) {
+    setTimeout(() => {
+        let commencer = confirm(
+            "🕹 Bienvenue sur le Speed Typing Game 🕹\nBut du jeu : Tapez les phrases le plus vite possible 🎯\n\nÊtes-vous prêt à commencer le jeu ?"
+        );
+        if (commencer) {
+            temps = 61;
+            afficherNvPhrase();
+        } else {
+            clearInterval(timer);
+            localStorage.clear();
+        }
+    }, 500);
+} else {
+    temps = 60;
+    afficherNvPhrase();
+}
 
 phraseTest.addEventListener("input", () => {
     const tableauPhrase = phraseAEcrire.querySelectorAll("span"); // contient chaque lettre de la phrase à recopier
