@@ -1,4 +1,4 @@
-const APICALL = "http://api.quotable.io/random";
+const APICALL = "https://api.quotable.io/random";
 
 const tempsAffichage = document.querySelector(".temps");
 const scoreAffichage = document.querySelector(".score");
