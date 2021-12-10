@@ -19,7 +19,6 @@ let x = canvas.width / 2,
     score = 0;
 
 
-
 function dessineBalle() {
     ctx.beginPath();
     ctx.arc(x, y, rayonBalle, 0, Math.PI * 2);
@@ -37,7 +36,6 @@ function dessineBarre() {
     ctx.closePath();
 }
 // dessineBarre();
-
 
 
 // Tableau avec toutes les briques
@@ -71,7 +69,6 @@ function dessineBriques() {
     }
 }
 // dessineBriques();
-
 
 
 function dessine() {
@@ -113,7 +110,6 @@ function dessine() {
 dessine();
 
 
-
 // Collision de la balle contre les briques
 function collisionDetection() {
     for (let i = 0; i < nbRow; i++) {
@@ -133,7 +129,7 @@ function collisionDetection() {
                     affichageScore.innerHTML = `Score : ${score}`;
 
                     if (score === nbCol * nbRow) {
-                        affichageScore.innerHTML = `<span style="color: green;">🎉 Bravo 🎉</span> <br> Clique sur le casse-briques pour recommencer 🕹`;
+                        affichageScore.innerHTML = `<span style="color: mediumspringgreen;">🎉 Bravo 🎉</span> <br> Clique sur le casse-briques pour recommencer 🕹`;
                         fin = true;
                     }
                 }
@@ -143,14 +139,13 @@ function collisionDetection() {
 }
 
 
-
 // Mouvement de la barre
 document.addEventListener("mousemove", mouvementSouris);
 function mouvementSouris(e) {
     let posXBarreCanvas = e.clientX - canvas.offsetLeft;
     // e.clienX => de la gauche jusqu'à la souris
     // canvas.offsetLeft => décalage par rapport à la gauche
-    
+
     // console.log(posXBarreCanvas);
 
     if (posXBarreCanvas > 35 && posXBarreCanvas < canvas.width - 35) {
@@ -159,11 +154,66 @@ function mouvementSouris(e) {
 }
 
 
-
-// Recommencer
+// Recommencer le jeu
 canvas.addEventListener("click", () => {
     if (fin === true) {
         fin = false;
         document.location.reload();
     }
 });
+
+
+// Configurer les événements tactiles pour mobile, etc
+canvas.addEventListener("touchstart", e => {
+        mousePos = getTouchPos(canvas, e);
+        var touch = e.touches[0];
+        var mouseEvent = new MouseEvent("mousedown", {
+            clientX: touch.clientX
+        });
+        canvas.dispatchEvent(mouseEvent);
+    },
+    false
+);
+
+canvas.addEventListener("touchend", e => {
+        var mouseEvent = new MouseEvent("mouseup", {});
+        canvas.dispatchEvent(mouseEvent);
+    },
+    false
+);
+
+canvas.addEventListener("touchcancel", e => {
+        e.preventDefault();
+        var touches = e.changedTouches;
+        for (var i = 0; i < touches.length; i++) {
+            ongoingTouches.splice(i, 1); // On enlève le point
+        }
+    },
+    false
+);
+
+canvas.addEventListener("touchmove", e => {
+        var touch = e.touches[0];
+        var mouseEvent = new MouseEvent("mousemove", {
+            clientX: touch.clientX,
+        });
+        canvas.dispatchEvent(mouseEvent);
+
+        let posXBarreCanvas = touch.clientX - canvas.offsetLeft;
+
+        if (posXBarreCanvas > 35 && posXBarreCanvas < canvas.width - 35) {
+            barreX = posXBarreCanvas - barreWidth / 2;
+        }
+    },
+    false
+);
+
+// Récupérer la position du toucher relatif au canvas
+function getTouchPos(canvasDom, touchEvent) {
+    var rect = canvasDom.getBoundingClientRect();
+    // console.log(rect);
+
+    return {
+        x: touchEvent.touches[0].clientX - rect.left,
+    };
+}
