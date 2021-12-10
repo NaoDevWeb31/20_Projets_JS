@@ -30,7 +30,7 @@ function time() {
         localStorage.setItem("scoreFinal", scoreFinal);
         setTimeout(() => {
             alert(
-                `Vous avez pu, en 60 secondes, écrire ${nbPhrasesEcrites} phrases complètes contenant au total ${score} caractères !`
+                `Vous avez pu, en 60 secondes, écrire ${nbPhrasesEcrites} ${nbPhrasesEcrites <= 1 ? "phrase complète" : "phrases complètes"} contenant au total ${score} ${nbPhrasesEcrites <= 1 ? "caractère" : "caractères"} !`
             );
             let veutRecommencer = confirm("Souhaitez-vous recommencer ?");
             if (veutRecommencer) {
