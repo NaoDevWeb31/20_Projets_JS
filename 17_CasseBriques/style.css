@@ -40,6 +40,12 @@ main {
     color: #f1f1f1;
 }
 
+@media screen and (max-width: 768px) {
+    .score {
+        margin-bottom: 70px;
+    }
+}
+
 canvas {
     background: #f1f1f1;
     display: block;
