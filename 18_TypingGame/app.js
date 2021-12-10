@@ -8,6 +8,8 @@ const phraseTest = document.querySelector(".phrase-test");
 
 let temps = 60;
 let score = 0;
+let phrasePourScore;
+let nbPhrasesEcrites = 0;
 
 tempsAffichage.innerText = `Temps : ${temps}`;
 scoreAffichage.innerText = `Score : ${score}`;
@@ -20,6 +22,13 @@ function time() {
     scoreAffichage.innerText = `Score : ${score}`;
     if (temps === 0) {
         clearInterval(timer);
+        alert(
+            `Vous avez pu, en 60 secondes, écrire ${nbPhrasesEcrites} phrases complètes contenant au total ${score} caractères !`
+        );
+        let veutRecommencer = confirm("Souhaitez-vous recommencer ?");
+        if (veutRecommencer) {
+            location.reload();
+        }
     }
 }
 
@@ -29,6 +38,8 @@ async function afficherNvPhrase() {
     const resultats = await appel.json();
     // console.log(resultats);
     const phrase = resultats.content;
+
+    phrasePourScore = phrase.length;
 
     phraseAEcrire.innerHTML = ``;
 
@@ -41,3 +52,33 @@ async function afficherNvPhrase() {
     phraseTest.value = null;
 }
 afficherNvPhrase();
+
+phraseTest.addEventListener("input", () => {
+    const tableauPhrase = phraseAEcrire.querySelectorAll("span"); // contient chaque lettre de la phrase à recopier
+    const tableauTest = phraseTest.value.split(""); // contient chaque lettre tapée
+
+    let correct = true;
+
+    tableauPhrase.forEach((caracSpan, index) => {
+        const caractere = tableauTest[index]; // lettre tapée
+
+        if (caractere === undefined) {
+            caracSpan.classList.remove("correct");
+            caracSpan.classList.remove("incorrect");
+            correct = false;
+        } else if (caractere === caracSpan.innerText) {
+            caracSpan.classList.add("correct");
+            caracSpan.classList.remove("incorrect");
+        } else {
+            caracSpan.classList.remove("correct");
+            caracSpan.classList.add("incorrect");
+            correct = false;
+        }
+    });
+
+    if (correct && temps > 0) {
+        afficherNvPhrase();
+        score += phrasePourScore;
+        nbPhrasesEcrites++;
+    }
+});
