@@ -61,3 +61,26 @@ main {
     justify-content: center;
     align-items: center;
 }
+
+.btn-rejouer {
+    margin: 2rem auto;
+    padding: 1rem;
+    font-size: 20px;
+    display: none;
+    width: 50%;
+    border-radius: 5px;
+    border: 2px white solid;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-rejouer:hover,
+.btn-rejouer:focus {
+    box-shadow: #859398 4px 4px 13px 5px;
+}
+
+.btn-rejouer:active,
+.btn-rejouer:focus-within {
+    box-shadow: inset white 0px 0px 15px 7px;
+}

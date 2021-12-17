@@ -1,6 +1,7 @@
 const info = document.querySelector(".info");
 const cellules = document.querySelectorAll(".cell");
 const main = document.querySelector("main");
+const btnRejouer = document.querySelector(".btn-rejouer");
 
 let verrouillage = true,
     joueurEnCours = "X";
@@ -61,9 +62,11 @@ function validationResultats() {
     }
 
     if (finDePartie) {
-        main.style.minHeight = "530px";
-        info.innerText = `Le joueur ${joueurEnCours} a gagné !`;
+        main.style.minHeight = "610px";
+        info.innerText = `Le joueur ${joueurEnCours} a gagné 🎉`;
+        info.style.color = "springgreen";
         verrouillage = false;
+        btnRejouer.style.display = "block";
         // console.log("partie finie et sortie de la fonction");
         return; // sort complètement de la fonction
     }
@@ -71,7 +74,10 @@ function validationResultats() {
     // si il n'y pas de chaîne de caractères vides dans partie en cours
     let matchNul = !partieEnCours.includes("");
     if (matchNul) {
-        info.innerText = `Match nul !`;
+        main.style.minHeight = "560px";
+        info.innerText = `🏳️ Match nul 🏳️`;
+        info.style.color = "silver";
+        btnRejouer.style.display = "block";
         return; // sort complètement de la fonction
     }
 
@@ -82,3 +88,7 @@ function changementDeJoueur() {
     joueurEnCours = joueurEnCours === "X" ? "O" : "X";
     info.innerText = `Au tour de ${joueurEnCours}`;
 }
+
+btnRejouer.addEventListener("click", () => {
+    location.reload();
+})
